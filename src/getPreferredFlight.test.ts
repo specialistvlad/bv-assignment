@@ -1,7 +1,7 @@
-import { getPreferredFlight } from '.';
+import { getPreferredFlight } from './getPreferredFlight';
 import flights from './flights.json';
 
-test('stack size', () => {
+test('getPreferredFlight positive test', () => {
     expect.assertions(1);
     const result = getPreferredFlight(
         flights,
