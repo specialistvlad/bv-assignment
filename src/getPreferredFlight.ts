@@ -34,8 +34,8 @@ export function getPreferredFlight(
     const preFilter = ({ departureTime, arrivalTime, carrier }: Flight) => {
         const from = minDate >= new Date(departureTime);
         const to = maxDate <= new Date(arrivalTime);
-        const carr = preferences.includes(carrier);
-        return from && to && carr;
+        // const carr = preferences.includes(carrier);
+        return from && to;
     };
 
     const calculate = (flight: Flight) => {
@@ -45,7 +45,7 @@ export function getPreferredFlight(
             ...flight,
             distance,
             duration,
-            coef: duration * CARRIER_PREF_MULTIPLIER + distance,
+            coef: duration * (preferences.includes(flight.carrier) ? CARRIER_PREF_MULTIPLIER : 1) + distance,
         };
     };
 
