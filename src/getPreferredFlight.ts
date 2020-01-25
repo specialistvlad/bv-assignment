@@ -1,5 +1,4 @@
 import { chain, map, filter, first } from 'lodash';
-// import R from 'ramda';
 import getDistanceBetweenAirports from './getDistanceBetweenAirports';
 
 const PORT = 3001;
@@ -34,7 +33,6 @@ export function getPreferredFlight(
     const preFilter = ({ departureTime, arrivalTime, carrier }: Flight) => {
         const from = minDate >= new Date(departureTime);
         const to = maxDate <= new Date(arrivalTime);
-        // const carr = preferences.includes(carrier);
         return from && to;
     };
 
